@@ -104,26 +104,26 @@
             <img src="book-img.svg" alt="">
         </div>
 
-        <form action="mailto:ramyavenkatagiri1@gmail.com" method="post" enctype="text/plain">
+        <form action="https://sheetdb.io/api/v1/skqhkwac2ooq2" method="post" id=sheet1>
             <div class="inputBox">
                 <h3>where to</h3>
                 <label>Place</label>
-                <input type="text" placeholder="place name" name="place">
+                <input type="text" placeholder="place name" name="data[Place]">
             </div>
             <div class="inputBox">
                 <h3>how many</h3>
                 <label>guests</label>
-                <input type="number" placeholder="number of guests" name="guests">
+                <input type="number" placeholder="number of guests" name="data[Guests]">
             </div>
             <div class="inputBox">
                 <h3>arrivals</h3>
                 <label>date</label>
-                <input type="date" name="date">
+                <input type="date" name="data[Arrival]">
             </div>
             <div class="inputBox">
                 <h3>leaving</h3>
                 <label>date</label>
-                <input type="date" name="date">
+                <input type="date" name="data[Leaving]">
             </div>
             <input type="submit" class="btn" value="book now">
         </form>
@@ -602,27 +602,27 @@
 
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
 <script src="script.js"></script>
 
 </body>
+    <script>
+    var form = document.getElementById("sheet1");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(form.action, {
+          method : "POST",
+          body: new FormData(document.getElementById("sheet1")),
+      }).then(
+          response => response.json()
+      ).then((html) => {
+        // you can put any JS code here
+        alert('SUCCESSFULLY SUBMITTED')
+      });
+    });
+  </script>
     <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
